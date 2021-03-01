@@ -1,5 +1,4 @@
-var events = {};
-
+//date on top
 var weekDay = "";
 switch (dayjs().day()) {
     case 0:
@@ -32,37 +31,81 @@ switch (dayjs().day()) {
 }
 var monthDay = dayjs().format("MMMM D");
 var currDay = weekDay + ", " + monthDay + "th"
-
 $("#currentDay").text(currDay);
 
+//event manipulation
+var events =
+    [{
+        9: ""
+    },
+    {
+        10: ""        
+    },
+    {
+        11: ""        
+    },
+    {
+        12: ""        
+    },
+    {
+        13: ""        
+    },
+    {
+        14: ""
+        
+    },
+    {
+        15: ""
+        
+    },
+    {
+        16: ""
+        
+    },
+    {
+        17: ""
+        
+    },
+    ];
 
-$(".9btn").on("click", function() {
-    console.log("9 am");
-})
-$(".10btn").on("click", function() {
-    console.log("10 am");
-})
-$(".save-btn").on("click", function () {
-    //change it so that it saves the text for specific hour codes
-    saveEvents(eventText);
+$(".9btn").on("click", function () {
+    var txt = $("#9").val();
+    events[9]
+    localStorage.set(txt)
+});
+$(".10btn").on("click", function () {
+    var txt = $("#10").val();
+    localStorage.set(txt)
+});
+$(".11btn").on("click", function () {
+    var txt = $("#11").val();
+    localStorage.set(txt)
+});
+$(".12btn").on("click", function () {
+    var txt = $("#12").val();
+    localStorage.set(txt)
+});
+$(".13btn").on("click", function () {
+    var txt = $("#13").val();
+    localStorage.set(txt)
+});
+$(".14btn").on("click", function () {
+    var txt = $("#14").val();
+    localStorage.set(txt)
+});
+$(".15btn").on("click", function () {
+    var txt = $("#15").val();
+    localStorage.set(txt)
+});
+$(".16btn").on("click", function () {
+    var txt = $("#16").val();
+    localStorage.set(txt)
+});
+$(".17btn").on("click", function () {
+    var txt = $("#17").val();
+    localStorage.set(txt)
 });
 
-function saveEvents() {
-    //save events to localStorage
-    localStorage.setItem("events", JSON.stringify(events));
-};
-
-var loadEvents = function () {
-    //display events stored in localStorage
-    events = JSON.parse(localStorage.getItem("events"));
-
-    if (!events) {
-        events = {
-            hrcode: [],
-            name: [],
-        };
-    };
-};
 
 function colorCode() {
     $("textarea").each(function (index, element) {
